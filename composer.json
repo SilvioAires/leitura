@@ -1,0 +1,47 @@
+{
+    "name": "silvioaires/leitura",
+    "description": "Leitura do html da Alura para ver quais os cursos est\u0000o disponiveis",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Silvio Aires",
+            "email": "silvio.aires@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/dom-crawler": "^4.2",
+        "symfony/css-selector": "^5.3",
+        "guzzlehttp/guzzle": "^7.3"
+    },
+    "autoload": {
+        "files": [
+            "./functions.php"
+        ],
+        "classmap": [
+            "./Teste.php"
+        ],
+        "psr-4": {
+            "Alura\\BuscadorDeCursos\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9",
+        "phan/phan": "^5.2"
+    },
+    "scripts": {
+        "test": "phpunit tests\\TestBuscadorDeCursos.php",
+        "cs": "phpcs --standard=PSR12 src/",
+        "phan": "phan --allow-polyfill-parser",
+        "check": [
+            "@phan",
+            "@cs",
+            "@test"
+        ],
+        "post-update-cmd": [
+            "@test"
+        ]
+    },
+    "scripts-descriptions": {
+        "check": "Roda as verificações do código. PHAN, PHPCS e PHPUNIT"
+    }
+}
